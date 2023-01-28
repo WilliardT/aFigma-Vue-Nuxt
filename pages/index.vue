@@ -12,12 +12,12 @@
           playsinline=""
           style="max-width: 70%"
         ></video>
-        <h3>
+        <h3 style="font-weight:400;">
           Figma connects everyone in the design process so teams can deliver
           better products, faster.
         </h3>
         <br />
-        <v-btn depressed color="primary"> Sign up free </v-btn>
+        <v-btn depressed color="primary" @click="scrollToForm"> Sign up free </v-btn>
         <br />
       </v-col>
     </v-container>
@@ -29,7 +29,7 @@
       <SocialCard />
     </v-container>
     <LastDivider />
-    <v-container>
+    <v-container ref="registerForm">
       <RegisterForm />
     </v-container>
   </v-col>
@@ -38,5 +38,13 @@
 <script>
 export default {
   name: 'IndexPage',
+  methods: {
+    scrollToForm () {
+      const el = this.$refs.registerForm;
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
 }
 </script>
