@@ -1,9 +1,9 @@
 <template>
   <div class="pricing-selector">
-    <div :class="{ active: type === 0 }" class="item" @click="onClick(0)">
+    <div :class="{ active: type == 0 }" class="item" @click="onClick(0)">
       <strong>Figma</strong> for design + prototyping
     </div>
-    <div :class="{ active: type === 1 }" class="item" @click="onClick(1)">
+    <div :class="{ active: type == 1 }" class="item" @click="onClick(1)">
       <strong>FigJam</strong> for whiteboarding
     </div>
   </div>
@@ -18,7 +18,8 @@ export default {
   },
   methods: {
     onClick(type) {
-      this.type = type
+      this.type = type;
+      this.$emit('selectType', this.type);
     },
   },
 }
